@@ -1,9 +1,12 @@
+
+## Default
+
 - git:
     local-name: ../database
-    uri: https://github.com/Solar-Clean/database.git
+    uri: git@github.com:Solar-Clean/database.git
     version: master
 
 - git:
     local-name: ../precision_landing
-    uri: https://github.com/Solar-Clean/xbee-interface.git
+    uri: git@github.com:Solar-Clean/xbee-interface.git
     version: master

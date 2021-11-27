@@ -15,6 +15,10 @@ else
   done
 fi
 
+rm .rosinstall
+touch .rosinstall 
+cat .rosinstall-default >> .rosinstall
+
 for i in "$@"; do
   cat .rosinstall-$i >> .rosinstall
 done
@@ -67,18 +71,23 @@ sudo aptitude update && sudo aptitude -y install \
     libarmadillo-dev \
     ros-noetic-nlopt
 
+pip install poetry
+source ~/.${CURSHELL}rc
+
+export ROS_PACKAGE_PATH="${PWD}/devel/setup.sh:$ROS_PACKAGE_PATH"
+
 rosws update
 
-mv pyproject.toml ../../pyproject.toml
+cp pyproject.toml ../../pyproject.toml
 
 cd ../..
 poetry install
+poetry update
 
-poetry shell
+poetry run catkin_make -DCMAKE_CXX_STANDARD=14
 
-catkin_make -CMAKE_CXX_STANDARD=14
-
-echo "alias make_drone='catkin_make -C ${PWD} -CMAKE_CXX_STANDARD=14'" >> ~/.${CURSHELL}_aliases
-echo "alias workon_solarswarm='cd ${PWD} && poetry shell && source ${PWD}/devel/setup.sh'" >> ~/.${CURSHELL}_aliases
+echo "alias make_drone='catkin_make -C ${PWD} -DCMAKE_CXX_STANDARD=14'" >> ~/.${CURSHELL}_aliases
+echo "alias workon_solarswarm='cd ${PWD} && poetry shell'" >> ~/.${CURSHELL}_aliases
+echo "alias solarswarm='source ${PWD}/devel/setup.sh'" >> ~/.${CURSHELL}_aliases
 
 source ~/.${CURSHELL}rc

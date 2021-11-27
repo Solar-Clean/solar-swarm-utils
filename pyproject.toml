@@ -6,6 +6,9 @@ authors = ["Reyk Carstens"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
+empy = "^3.3.4"
+catkin-pkg = "^0.4.24"
+PyYAML = "^6.0"
 
 [tool.poetry.dev-dependencies]
 

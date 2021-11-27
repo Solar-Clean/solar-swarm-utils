@@ -3,10 +3,10 @@
 
 - git:
     local-name: ../drone
-    uri: https://github.com/Solar-Clean/drone.git
+    uri: git@github.com:Solar-Clean/drone.git
     version: master
 
 - git:
     local-name: ../precision_landing
-    uri: https://github.com/Solar-Clean/precision_landing.git
+    uri: git@github.com:Solar-Clean/precision_landing.git
     version: master
