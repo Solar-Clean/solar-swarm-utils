@@ -7,6 +7,6 @@
     version: master
 
 - git:
-    local-name: ../precision_landing
-    uri: git@github.com:Solar-Clean/xbee-interface.git
+    local-name: ../xbee_interface
+    uri: git@github.com:Solar-Clean/x_bee_interface.git
     version: master
